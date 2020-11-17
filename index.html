@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso Basico de Vue.js | Platzi</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="app" v-bind:style="{ background:'#'+color }">
+        <h1>{{ title }}</h1>
+        <p>{{ 1 + 1 + 1 }}</p>
+        <p>{{ true || false }}</p>
+        <p>{{ true ? true : false }}</p>
+        <p>{{ 'string'.toUpperCase() }}</p>
+        <p>{{ JSON.stringify({ name: 'Nacho' }) }}</p>
+        <h1 v-bind:class="changePercent > 0 ? 'green':'red'">
+          {{title}}
+          <img 
+          v-on:mouseover="toggleShowPrices"
+          v-on:mouseout="toggleShowPrices"
+           v-bind:src="img" alt="name">
+
+            <span v-if="changePercent > 0">✋</span>
+            <!-- si cambia mucho usar v-show -->
+            <span v-else>🗯️</span>
+        <!-- <ul>
+          <li v-for="(p,i) in prices" v-bind:key>
+            {{i}}-{{p}}</li>
+        </ul> -->
+
+        <input type="number" v-model="value">
+        <span>{{convertedValue }}</span>
+
+
+
+        <span v-on:click="toggleShowPrices">{{showPrices? "👁 ":"👁️‍🗨️ "}}</span>
+        <ul  v-show=showPrices>
+          <!--  clase red sera aplicada si el precio es menor al value -->
+          <!-- se aplican y remueven clases dinamicamente -->
+          <li 
+            class="uppercase"
+            v-bind:class="{orange:p.value===price, red:p.value < price, green :p.value > price}"
+            v-for="(p,i) in pricesWithDays" 
+            v-bind:key="p.day"
+
+          
+          >
+            {{i}}-{{p.day}}-{{p.value}}</li>
+        </ul> 
+
+        </h1>
+     
+      </div>
+
+
+  <!-- <div id="app" v-bind:style="{ background: '#' + color }">
+    <coin-detail
+      v-on:change-color="updateColor"
+      v-bind:coin="btc">
+
+
+      <template v-slot:text>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, aperiam? Non dignissimos nam, voluptatem ducimus eos, pariatur dolor quisquam at asperiores praesentium molestias recusandae cum inventore, omnis consequatur? Voluptate, quo?</p>
+      </template>
+
+      <template v-slot:link>
+        <a href="#">Link!</a>
+      </template>
+    </coin-detail>
+
+  </div> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
